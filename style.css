@@ -41,7 +41,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #0b0c10;
   color: #363a3d;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 /* HERO SECTION */
@@ -239,4 +239,3 @@ body {
 .image-card img {
   cursor: pointer;
 }
-
