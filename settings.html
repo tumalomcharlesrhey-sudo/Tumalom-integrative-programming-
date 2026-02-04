@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings — Tumalom</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b0c10;
+      color: #363a3d;
+      overflow-x: hidden;
+    }
+  </style>
+  <body>
+    <header>
+      <div class="logo">Charles Rhey B. Tumalom</div>
+      <nav>
+        <ul id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="settings.html" class="active">Settings</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+        <div id="menu-toggle" class="menu-icon">☰</div>
+      </nav>
+    </header>
+    <main class="settings-container">
+      <section class="settings-card">
+        <h2>Settings</h2>
+
+        <div class="setting-row">
+          <label>Theme</label>
+          <div>
+            <button id="theme-toggle" class="btn">Toggle Theme</button>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <label>Display Name</label>
+          <div class="row-inline">
+            <input
+              id="settings-name"
+              type="text"
+              placeholder="Your display name" />
+            <button id="save-name" class="btn">Save</button>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <label>Email Notifications</label>
+          <div><input id="notif-toggle" type="checkbox" /> Enable</div>
+        </div>
+
+        <div class="setting-row actions">
+          <a href="profile.html" class="btn btn-outline">Back to Profile</a>
+          <button id="delete-account" class="btn">Delete Account</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

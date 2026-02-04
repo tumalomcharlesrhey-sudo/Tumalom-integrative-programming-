@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile — Tumalom</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b0c10;
+      color: #363a3d;
+      overflow-x: hidden;
+    }
+  </style>
+
+  <body>
+    <header>
+      <div class="logo">Charles Rhey B. Tumalom</div>
+      <nav>
+        <ul id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile.html" class="active">Profile</a></li>
+        </ul>
+        <div id="menu-toggle" class="menu-icon">☰</div>
+      </nav>
+    </header>
+    <main class="profile-container">
+      <section class="profile-card">
+        <div class="profile-left">
+          <div class="avatar"><img src="prof.jpg" alt="profile" /></div>
+          <div class="profile-actions">
+            <a href="index.html" id="logout" class="btn btn-outline">Logout</a>
+          </div>
+        </div>
+        <div class="profile-right">
+          <h2 id="display-name">Charles Rhey B. Tumalom</h2>
+          <p id="display-email">tumalom.charles_rhey@hnu.edu.ph</p>
+          <p id="display-bio">
+            Front-end developer and student interested in integrative
+            programming.
+          </p>
+
+          <div class="profile-stats">
+            <div><strong id="stat-posts">0</strong><span>Posts</span></div>
+            <div>
+              <strong id="stat-followers">8.3B</strong><span>Followers</span>
+            </div>
+            <div>
+              <strong id="stat-following">0</strong><span>Following</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
