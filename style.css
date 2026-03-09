@@ -39,7 +39,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #0b0c10;
+  background: radial-gradient(circle at 50% 50%, #1f2833, #0b0c10);
   color: #363a3d;
   overflow-x: hidden;
 }
@@ -499,4 +499,29 @@ nav a.active {
 .light-theme nav a.active,
 .light-theme nav a:hover {
   color: #b58953;
+}
+
+/* Admin Dashboard Styles */
+.dashboard-card {
+  background: #2c2c2c;
+  border: 1px solid #b58953;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-card h3 {
+  color: #b58953;
+  margin-bottom: 10px;
+}
+
+.dashboard-card p {
+  color: #ccc;
+  margin-bottom: 20px;
 }

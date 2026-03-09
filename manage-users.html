@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Users</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        color: #e0e0e0; /* Lighter text for better visibility on dark background */
+        background: radial-gradient(circle at 50% 50%, #1f2833, #0b0c10);
+      }
+      .users-table tbody td {
+        color: #e0e0e0;
+      }
+      .form-container p {
+        color: #ccc;
+      }
+    </style>
+    <style>
+      .users-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background: #2c2c2c;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .users-table th,
+      .users-table td {
+        border: 1px solid #444;
+        padding: 12px;
+        text-align: left;
+      }
+      .users-table th {
+        background-color: #b58953;
+        color: #000;
+        font-weight: bold;
+      }
+      .users-table tbody tr:nth-child(even) {
+        background-color: #333;
+      }
+      .users-table tbody tr:hover {
+        background-color: #444;
+      }
+      .form-container {
+        margin-top: 30px;
+        padding: 20px;
+        background: #2c2c2c;
+        border: 1px solid #b58953;
+        border-radius: 8px;
+      }
+      .form-container h3 {
+        color: #b58953;
+        margin-bottom: 20px;
+      }
+      .form-container input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #555;
+        border-radius: 4px;
+        background: #333;
+        color: #fff;
+      }
+      .form-container input::placeholder {
+        color: #ccc;
+      }
+      .btn-delete {
+        background: #d9534f;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .btn-delete:hover {
+        background: #c9302c;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">Admin Panel</div>
+      <nav>
+        <ul id="nav-links">
+          <li><a href="admin.html">Dashboard</a></li>
+          <li><a href="manage-users.html" class="active">Manage Users</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+        <div id="menu-toggle" class="menu-icon">☰</div>
+      </nav>
+    </header>
+
+    <main style="max-width: 1200px; margin: 50px auto; padding: 20px">
+      <h1 style="text-align: center; margin-bottom: 40px; color: #b58953">
+        Manage Users
+      </h1>
+
+      <table class="users-table" id="users-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Ana</td>
+            <td>ana@email.com</td>
+            <td>User</td>
+            <td>
+              <button class="btn-delete" onclick="deleteUser(1)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Juan</td>
+            <td>juan@email.com</td>
+            <td>User</td>
+            <td>
+              <button class="btn-delete" onclick="deleteUser(2)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="form-container">
+        <h3>Add New User</h3>
+        <form id="add-user-form">
+          <input type="text" id="new-name" placeholder="Name" required />
+          <input type="email" id="new-email" placeholder="Email" required />
+          <input
+            type="text"
+            id="new-role"
+            placeholder="Role (e.g., User, Admin)"
+            required />
+          <button type="submit" class="btn">Add User</button>
+        </form>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+      let userId = 3; // Next ID
+
+      document
+        .getElementById("add-user-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          addUser();
+        });
+
+      function deleteUser(id) {
+        const row = document.querySelector(
+          `tr td:first-child:contains('${id}')`,
+        ).parentElement;
+        if (row) {
+          row.remove();
+        }
+      }
+
+      function addUser() {
+        const name = document.getElementById("new-name").value;
+        const email = document.getElementById("new-email").value;
+        const role = document.getElementById("new-role").value;
+
+        if (name && email && role) {
+          const tbody = document.querySelector("#users-table tbody");
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${userId}</td>
+            <td>${name}</td>
+            <td>${email}</td>
+            <td>${role}</td>
+            <td><button class="btn-delete" onclick="deleteUser(${userId})">Delete</button></td>
+          `;
+          tbody.appendChild(row);
+          userId++;
+
+          // Clear form
+          document.getElementById("new-name").value = "";
+          document.getElementById("new-email").value = "";
+          document.getElementById("new-role").value = "";
+        } else {
+          alert("Please fill all fields");
+        }
+      }
+    </script>
+    <script>
+      // Check if admin is logged in
+      if (
+        localStorage.getItem("loggedIn") !== "true" ||
+        localStorage.getItem("userRole") !== "admin"
+      ) {
+        window.location.href = "login.html";
+      }
+    </script>
+  </body>
+</html>

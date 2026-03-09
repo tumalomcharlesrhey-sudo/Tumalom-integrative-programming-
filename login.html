@@ -24,5 +24,36 @@
         <a href="signup.html">Sign Up</a>
       </p>
     </div>
+
+    <script>
+      const form = document.querySelector("form");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const email = document.querySelector('input[type="email"]').value;
+        const password = document.querySelector('input[type="password"]').value;
+
+        // Simple hardcoded users for demo
+        const users = [
+          { email: "sharsrey@kupal.com", password: "kupal", role: "user" },
+          { email: "charles@kupal.com", password: "admin", role: "admin" },
+        ];
+
+        const user = users.find(
+          (u) => u.email === email && u.password === password,
+        );
+        if (user) {
+          localStorage.setItem("loggedIn", "true");
+          localStorage.setItem("userRole", user.role);
+          localStorage.setItem("userEmail", user.email);
+          if (user.role === "admin") {
+            window.location.href = "admin.html";
+          } else {
+            window.location.href = "profile.html";
+          }
+        } else {
+          alert("Invalid credentials");
+        }
+      });
+    </script>
   </body>
 </html>

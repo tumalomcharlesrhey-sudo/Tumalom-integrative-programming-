@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        color: #e0e0e0; /* Lighter text for better visibility on dark background */
+        background: radial-gradient(circle at 50% 50%, #1f2833, #0b0c10);
+      }
+      .dashboard-card p {
+        color: #ccc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">Admin Panel</div>
+      <nav>
+        <ul id="nav-links">
+          <li><a href="admin.html" class="active">Dashboard</a></li>
+          <li><a href="manage-users.html">Manage Users</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+        <div id="menu-toggle" class="menu-icon">☰</div>
+      </nav>
+    </header>
+
+    <main style="max-width: 1200px; margin: 50px auto; padding: 20px">
+      <h1 style="text-align: center; margin-bottom: 40px; color: #b58953">
+        Admin Dashboard
+      </h1>
+      <p style="text-align: center; margin-bottom: 40px">
+        Welcome Admin! Use the menu to manage system data.
+      </p>
+
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 20px;
+        ">
+        <div class="dashboard-card">
+          <h3>Manage Users</h3>
+          <p>View, add, and delete user accounts.</p>
+          <a href="manage-users.html" class="btn">Go to Manage Users</a>
+        </div>
+        <div class="dashboard-card">
+          <h3>System Settings</h3>
+          <p>Configure system-wide settings.</p>
+          <button class="btn" disabled>Coming Soon</button>
+        </div>
+        <div class="dashboard-card">
+          <h3>Reports</h3>
+          <p>View analytics and reports.</p>
+          <button class="btn" disabled>Coming Soon</button>
+        </div>
+        <div class="dashboard-card">
+          <h3>Back to Home</h3>
+          <p>Return to the main website.</p>
+          <a href="index.html" class="btn">Go Home</a>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+      // Check if admin is logged in
+      if (
+        localStorage.getItem("loggedIn") !== "true" ||
+        localStorage.getItem("userRole") !== "admin"
+      ) {
+        window.location.href = "login.html";
+      }
+    </script>
+  </body>
+</html>

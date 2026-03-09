@@ -9,7 +9,6 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #0b0c10;
       color: #363a3d;
       overflow-x: hidden;
     }
@@ -36,7 +35,7 @@
         </div>
         <div class="profile-right">
           <h2 id="display-name">Charles Rhey B. Tumalom</h2>
-          <p id="display-email">tumalom.charles_rhey@hnu.edu.ph</p>
+          <p id="display-email">sharsrey@kupal.com</p>
           <p id="display-bio">
             Front-end developer and student interested in integrative
             programming.
@@ -54,5 +53,23 @@
         </div>
       </section>
     </main>
+
+    <script src="script.js"></script>
+    <script>
+      // Check if logged in
+      if (localStorage.getItem("loggedIn") !== "true") {
+        window.location.href = "login.html";
+      }
+
+      // Logout functionality
+      const logoutBtn = document.getElementById("logout");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          localStorage.clear();
+          window.location.href = "index.html";
+        });
+      }
+    </script>
   </body>
 </html>
