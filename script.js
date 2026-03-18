@@ -100,6 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
     settingsName.value = localStorage.getItem("displayName") || "";
   if (notifToggle)
     notifToggle.checked = localStorage.getItem("emailNotif") === "true";
+  // Load saved countries on page load
+  loadSavedCountries();
 });
 
 if (themeToggleBtn) {
@@ -196,6 +198,113 @@ const setLoading = (isLoading) => {
   }
 };
 
+// ========== LOCALSTORAGE FUNCTIONS ==========
+
+// Save country to localStorage
+const saveCountryToStorage = (countryData) => {
+  let savedCountries = JSON.parse(localStorage.getItem("savedCountries")) || [];
+
+  // Check if country already exists (prevent duplicates)
+  const isDuplicate = savedCountries.some(
+    (c) => c.name.toLowerCase() === countryData.name.toLowerCase(),
+  );
+
+  if (isDuplicate) {
+    showSuccessMessage("This country is already saved!", "warning");
+    return false;
+  }
+
+  savedCountries.push(countryData);
+  localStorage.setItem("savedCountries", JSON.stringify(savedCountries));
+  showSuccessMessage("✓ Country saved successfully!", "success");
+  return true;
+};
+
+// Load saved countries from localStorage
+const loadSavedCountries = () => {
+  const savedList = document.getElementById("saved-list");
+  if (!savedList) return;
+
+  const savedCountries =
+    JSON.parse(localStorage.getItem("savedCountries")) || [];
+
+  // Empty state
+  if (savedCountries.length === 0) {
+    savedList.innerHTML = `
+      <div style="grid-column: 1 / -1;">
+        <div class="empty-state">
+          <h2>No Saved Countries Yet</h2>
+          <p>Search for countries and click "Save Country" to add them here!</p>
+          <a href="country-info.html" class="btn" style="background: #2196f3; color: white; padding: 10px 20px;">Search Countries</a>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  // Display saved countries
+  savedList.innerHTML = savedCountries
+    .map(
+      (country, index) => `
+      <div class="saved-card">
+        <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #2196f3, #42a5f5); display: flex; align-items: center; justify-content: center;">
+          <div style="text-align: center; color: white;">
+            ${country.flag ? `<img src="${country.flag}" alt="Flag" style="height: 50px; margin-bottom: 8px;">` : ""}
+            <div style="font-weight: bold; font-size: 18px;">${country.name}</div>
+          </div>
+        </div>
+        <div class="saved-card-content">
+          <h3>${country.name}</h3>
+          <p><strong>Capital:</strong> ${country.capital}</p>
+          <p><strong>Population:</strong> ${country.population?.toLocaleString() || "N/A"}</p>
+          <p><strong>Region:</strong> ${country.region}</p>
+          <p><strong>Currency:</strong> ${country.currencies}</p>
+          <p style="font-size: 12px; color: #999;">Saved: ${country.savedAt}</p>
+          <button class="btn-delete" onclick="deleteCountry(${index})">🗑️ Delete</button>
+        </div>
+      </div>
+    `,
+    )
+    .join("");
+};
+
+// Delete a country from saved
+const deleteCountry = (index) => {
+  if (!confirm("Are you sure you want to delete this country?")) return;
+
+  let savedCountries = JSON.parse(localStorage.getItem("savedCountries")) || [];
+  const deletedCountry = savedCountries[index].name;
+  savedCountries.splice(index, 1);
+  localStorage.setItem("savedCountries", JSON.stringify(savedCountries));
+
+  showSuccessMessage(`✓ ${deletedCountry} removed!`, "success");
+  loadSavedCountries();
+};
+
+// Show success/warning message
+const showSuccessMessage = (message, type = "success") => {
+  const messageDiv = document.createElement("div");
+  messageDiv.className = `success-message message-${type}`;
+  messageDiv.textContent = message;
+  messageDiv.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 4px;
+    background-color: ${type === "success" ? "#4CAF50" : "#ff9800"};
+    color: white;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  `;
+  document.body.appendChild(messageDiv);
+
+  setTimeout(() => {
+    messageDiv.remove();
+  }, 3000);
+};
+
 const fetchWeather = async (capital) => {
   if (!capital) return "Weather unavailable";
   try {
@@ -244,9 +353,30 @@ const renderCountry = async (countryData) => {
           <h3>Religions (est.)</h3>
           ${religionsHtml}
         </div>
+        <div class="country-actions">
+          <button class="btn btn-save" id="save-country-btn">💾 Save Country</button>
+          <a href="saved-countries.html" class="btn btn-view-saved">📋 View Saved</a>
+        </div>
       </div>
     </div>
   `;
+
+  // Add save button functionality
+  const saveCountryBtn = document.getElementById("save-country-btn");
+  if (saveCountryBtn) {
+    saveCountryBtn.addEventListener("click", () => {
+      saveCountryToStorage({
+        name: name,
+        capital: capital,
+        population: population,
+        region: region,
+        subregion: subregion,
+        currencies: currencies,
+        flag: flag,
+        savedAt: new Date().toLocaleString(),
+      });
+    });
+  }
 };
 
 const searchCountry = async () => {

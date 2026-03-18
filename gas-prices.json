@@ -1,0 +1,135 @@
+{
+  "Philippines": {
+    "petron": 50.45,
+    "shell": 49.95,
+    "caltex": 50.22,
+    "currency": "PHP",
+    "per_unit": "per liter"
+  },
+  "Japan": {
+    "petron": 155.2,
+    "shell": 154.8,
+    "caltex": 155.5,
+    "currency": "JPY",
+    "per_unit": "per liter"
+  },
+  "Italy": {
+    "petron": 1.62,
+    "shell": 1.58,
+    "caltex": 1.6,
+    "currency": "EUR",
+    "per_unit": "per liter"
+  },
+  "Thailand": {
+    "petron": 32.5,
+    "shell": 32.25,
+    "caltex": 32.75,
+    "currency": "THB",
+    "per_unit": "per liter"
+  },
+  "Mexico": {
+    "petron": 20.45,
+    "shell": 20.3,
+    "caltex": 20.55,
+    "currency": "MXN",
+    "per_unit": "per liter"
+  },
+  "India": {
+    "petron": 104.25,
+    "shell": 103.95,
+    "caltex": 104.5,
+    "currency": "INR",
+    "per_unit": "per liter"
+  },
+  "United States": {
+    "petron": 3.45,
+    "shell": 3.5,
+    "caltex": 3.48,
+    "currency": "USD",
+    "per_unit": "per gallon"
+  },
+  "Canada": {
+    "petron": 1.28,
+    "shell": 1.26,
+    "caltex": 1.3,
+    "currency": "CAD",
+    "per_unit": "per liter"
+  },
+  "Australia": {
+    "petron": 1.85,
+    "shell": 1.82,
+    "caltex": 1.88,
+    "currency": "AUD",
+    "per_unit": "per liter"
+  },
+  "Singapore": {
+    "petron": 2.34,
+    "shell": 2.28,
+    "caltex": 2.31,
+    "currency": "SGD",
+    "per_unit": "per liter"
+  },
+  "France": {
+    "petron": 1.72,
+    "shell": 1.68,
+    "caltex": 1.7,
+    "currency": "EUR",
+    "per_unit": "per liter"
+  },
+  "Germany": {
+    "petron": 1.88,
+    "shell": 1.85,
+    "caltex": 1.87,
+    "currency": "EUR",
+    "per_unit": "per liter"
+  },
+  "Brazil": {
+    "petron": 5.2,
+    "shell": 5.15,
+    "caltex": 5.25,
+    "currency": "BRL",
+    "per_unit": "per liter"
+  },
+  "South Korea": {
+    "petron": 1650.5,
+    "shell": 1640.25,
+    "caltex": 1645.75,
+    "currency": "KRW",
+    "per_unit": "per liter"
+  },
+  "New Zealand": {
+    "petron": 2.15,
+    "shell": 2.12,
+    "caltex": 2.18,
+    "currency": "NZD",
+    "per_unit": "per liter"
+  },
+  "Spain": {
+    "petron": 1.65,
+    "shell": 1.62,
+    "caltex": 1.64,
+    "currency": "EUR",
+    "per_unit": "per liter"
+  },
+  "Portugal": {
+    "petron": 1.58,
+    "shell": 1.55,
+    "caltex": 1.57,
+    "currency": "EUR",
+    "per_unit": "per liter"
+  },
+  "Greece": {
+    "petron": 1.72,
+    "shell": 1.68,
+    "caltex": 1.71,
+    "currency": "EUR",
+    "per_unit": "per liter"
+  },
+  "Turkey": {
+    "petron": 28.45,
+    "shell": 28.2,
+    "caltex": 28.5,
+    "currency": "TRY",
+    "per_unit": "per liter"
+  }
+}

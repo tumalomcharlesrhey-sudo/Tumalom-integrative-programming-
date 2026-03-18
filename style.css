@@ -546,28 +546,6 @@ nav a.active {
   margin-top: 10px;
 }
 
-.religion-section h3 {
-  margin: 14px 0 8px;
-}
-
-.religion-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.religion-list li {
-  margin: 6px 0;
-  padding-left: 14px;
-  position: relative;
-}
-
-.religion-list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #b58953;
-}
-
 .message {
   max-width: 540px;
   background: rgba(255, 255, 255, 0.08);
@@ -586,6 +564,14 @@ nav a.active {
   border-color: rgba(255, 80, 80, 0.65);
 }
 
+.message-success {
+  border-color: rgba(76, 175, 80, 0.5);
+}
+
+.message-warning {
+  border-color: rgba(255, 152, 0, 0.5);
+}
+
 .loader {
   width: 50px;
   height: 50px;
@@ -599,6 +585,28 @@ nav a.active {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(400px);
+    opacity: 0;
   }
 }
 .settings-card h2 {
@@ -677,4 +685,169 @@ nav a.active {
 .dashboard-card p {
   color: #ccc;
   margin-bottom: 20px;
+}
+
+/* Countries Section */
+.countries-section {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+}
+
+.countries-section h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.countries-section p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+}
+
+.country-card-home {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.country-card-home:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.country-card-home-header {
+  background: linear-gradient(135deg, #2196f3, #42a5f5);
+  color: white;
+  padding: 25px 20px;
+  text-align: center;
+}
+
+.country-card-home-header h3 {
+  font-size: 24px;
+  margin: 0 0 8px 0;
+  font-weight: bold;
+}
+
+.country-card-home-header p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+}
+
+.country-card-home-body {
+  padding: 20px;
+  text-align: left;
+}
+
+.country-card-home-body p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.country-card-home-body a {
+  color: #2196f3;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.country-card-home-body a:hover {
+  color: #1976d2;
+}
+
+.country-card-home-body strong {
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .countries-section {
+    padding: 60px 15px;
+  }
+
+  .countries-section h2 {
+    font-size: 28px;
+  }
+
+  .countries-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Country Save Feature */
+.country-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.country-actions .btn-save,
+.country-actions .btn-view-saved {
+  flex: 1;
+  padding: 10px 15px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+
+.country-actions .btn-save {
+  background: #4caf50;
+}
+
+.country-actions .btn-save:hover {
+  background: #45a049;
+}
+
+.country-actions .btn-view-saved {
+  background: #2196f3;
+}
+
+.country-actions .btn-view-saved:hover {
+  background: #0b7dda;
+}
+
+.success-banner {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  z-index: 1000;
+  animation: slideIn 0.3s ease;
+}
+
+.success-banner.message-success {
+  background-color: #4caf50;
+}
+
+.success-banner.message-warning {
+  background-color: #ff9800;
 }
