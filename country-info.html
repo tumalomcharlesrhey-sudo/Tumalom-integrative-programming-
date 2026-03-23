@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Country Info Explorer — Tumalom</title>
+    <title>Bible Verse Search — Tumalom</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -13,8 +13,8 @@
         <ul id="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="settings.html">Settings</a></li>
-          <li><a href="country-info.html" class="active">Country Info</a></li>
-          <li><a href="saved-countries.html">Saved Countries</a></li>
+          <li><a href="country-info.html" class="active">Bible Search</a></li>
+          <li><a href="saved-verses.html">Saved Verses</a></li>
         </ul>
         <div id="menu-toggle" class="menu-icon">☰</div>
       </nav>
@@ -22,16 +22,16 @@
 
     <section class="hero">
       <div class="hero-content">
-        <h1>Country Info Explorer</h1>
-        <p>Search for a country and discover its population, currency, weather, and more information.</p>
+        <h1>Bible Verse Search</h1>
+        <p>Search for a specific Bible verse and discover its text and context.</p>
 
         <div class="search-container">
-          <label for="country-input" class="visually-hidden">Country name</label>
-          <input type="text" id="country-input" placeholder="e.g. Philippines, Japan, United States" autocomplete="off" />
+          <label for="country-input" class="visually-hidden">Bible verse reference</label>
+          <input type="text" id="country-input" placeholder="e.g. John 3:16, Genesis 1:1, Psalm 23:1" autocomplete="off" />
           <button id="search-btn" class="btn">Search</button>
         </div>
 
-        <div class="hint">Tip: Press <strong>Enter</strong> or click Search after typing a country name.</div>
+        <div class="hint">Tip: Press <strong>Enter</strong> or click Search after typing a verse reference.</div>
         <div id="result" class="result-area"></div>
       </div>
     </section>

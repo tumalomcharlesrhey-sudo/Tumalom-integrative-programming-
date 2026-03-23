@@ -546,6 +546,39 @@ nav a.active {
   margin-top: 10px;
 }
 
+.verse-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  max-width: 600px;
+  width: 100%;
+  color: #f3f4f6;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: left;
+}
+
+.verse-card h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 28px;
+}
+
+.verse-card p {
+  margin: 6px 0;
+}
+
+.verse-text {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 16px 0;
+  font-style: italic;
+}
+
+.verse-content {
+  margin-top: 10px;
+}
+
 .message {
   max-width: 540px;
   background: rgba(255, 255, 255, 0.08);

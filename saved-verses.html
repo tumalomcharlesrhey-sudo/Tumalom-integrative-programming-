@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saved Verses — Tumalom</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Charles Rhey B. Tumalom</div>
+      <nav>
+        <ul id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="settings.html">Settings</a></li>
+          <li><a href="country-info.html">Bible Search</a></li>
+          <li>
+            <a href="saved-verses.html" class="active">Saved Verses</a>
+          </li>
+        </ul>
+        <div id="menu-toggle" class="menu-icon">☰</div>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Saved Verses</h1>
+        <p>
+          Your collection of saved Bible verses for inspiration and reflection.
+        </p>
+      </div>
+    </section>
+
+    <section class="saved-section">
+      <div class="saved-container">
+        <div id="saved-list" class="saved-grid">
+          <!-- Saved verses will be loaded here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .saved-section {
+        background: #ffffff;
+        padding: 60px 20px;
+        min-height: 60vh;
+      }
+
+      .saved-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .saved-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .saved-card {
+        background: #f9f9f9;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .saved-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .saved-card-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .saved-card-header h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .saved-card-content {
+        padding: 18px;
+      }
+
+      .saved-card-content p {
+        margin: 6px 0;
+        color: #333;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .saved-card-content .verse-text {
+        font-style: italic;
+        color: #555;
+        margin: 10px 0;
+      }
+
+      .btn-delete {
+        background: #e74c3c;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        margin-top: 10px;
+      }
+
+      .btn-delete:hover {
+        background: #c0392b;
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+      }
+
+      .empty-state h2 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .empty-state a {
+        color: #667eea;
+        text-decoration: none;
+      }
+
+      .empty-state a:hover {
+        text-decoration: underline;
+      }
+    </style>
+
+    <script src="script.js"></script>
+  </body>
+</html></content>
+<parameter name="filePath">c:\Users\501C\Desktop\Tumalom-integrative-programming\Tumalom-integrative-programming-\saved-verses.html
